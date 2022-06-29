@@ -1,0 +1,62 @@
+extends layout.pug
+block content
+    .documentation
+        h1(style="text-align:center") Documentation
+
+        h2 Avant-propos
+        article
+            p Pour lancer le projet : 
+                kbd npm run dev
+            p Archtecture du projet : 
+                kbd Model - Vue - Controller
+
+        h2 Stack technique 
+        .grid 
+            article 
+                header 
+                    h3 Back-end
+                ul 
+                    li Serveur nodeJS + Express
+                    li browser-refresh
+                    li API TheMovieDB + fetch /* bibliothèque nodeJS */
+                    li Mongoose + MongoDB
+            article 
+                header 
+                    h3 Front-end
+                ul 
+                    li JavaScript natif
+                    li Pico css + intégration Bootstrap 
+                    li Moteur de template Pug 
+
+        h2 Fonctionnalités principales 
+
+        .grid 
+            article 
+                header 
+                    h3 Back-office
+                ul 
+                    li Gestion des permissions : le back-office n'est accèssible qu'aux utilisateurs ayant le rôle admin
+                    li Gérer les films
+                        ul 
+                            li Ajouter un film avec auto-complétion grâce à l'API TheMovieDB 
+                            li Ajouter une bande annonce sur un film 
+                            li Modifier, supprimer un film
+                            li Import de film grâce à un fichier texte
+                    li Gérer les utilisateurs
+                        ul 
+                            li à venir...
+            article 
+                header 
+                    h3 Front-office
+                ul 
+                    li Afficher les films 
+                        ul 
+                            li Pagination des films sur la page d'accueil
+                            li Afficher les détails d'un film
+                    li Compte utilisateur
+                        ul 
+                            li Création de compte / Authentification
+                            li Accès à un espace membre 
+                            li à venir...
+
+        button(aria-busy="true") Loading...

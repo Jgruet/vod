@@ -1,0 +1,58 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //link(rel='stylesheet', href='@picocss/pico')
+        link(rel='stylesheet', href='/css/main.css')
+        script(src=process.env.BROWSER_REFRESH_URL)
+        title Vàld - Vidéo à la demande
+    body
+        .hero 
+            nav(class="container-fluid")
+                ul
+                    li
+                        strong Vàld
+                    
+
+                ul
+                    li 
+                        a(href="/") Accueil
+                    if session.user
+                        li Bienvenue, #{session.user.firstname}.
+                        li 
+                            a(href=`/dashboard`) Mon compte
+                        li
+                            a(href="/deconnexion") Se déconnecter 
+                        if session.user.isAdmin
+                            li
+                                a(href='/admin') Administration
+                    else
+
+                        li 
+                            a(href="/inscription") Inscription
+                        li
+                            a(role="button" href="/connexion") Connexion
+
+            header(class="container")
+                hgroup
+                    h1 Vàld - Vidéo à la demande 
+                    h2 Une application nodeJS pour le plaisir
+                p 
+                    a(role="button" href="/doc") Voir la documentation
+        main(class="container")
+            block content
+        footer(class="container")
+            small Built with 
+                a(href="https://picocss.com") Pico 
+                span & 
+                a(href="https://nodejs.org/en/") NodeJS
+            block javascript
+            - var messages = getMessages()
+                    if messages.notify
+                        each msg in messages.notify
+                            .alert.alert-info= msg
+                    if messages.error
+                        each msg in messages.error
+                            .alert.alert-danger= msg

@@ -1,0 +1,31 @@
+extends ../layout.pug
+
+block content
+    h1 Tous les films 
+    if (movies.length)
+        table
+            thead
+                tr
+                th(scope='col') #
+                th(scope='col') Titre
+                th(scope='col') Genre
+                th(scope='col') Année
+                th(scope='col') Actions
+                th(scope='col') 
+            tbody
+                each movie in movies
+                    tr
+                        th(scope='row')= movie.id_tmdb
+                        td= movie.title
+                        td= movie.genre
+                        td= movie.year
+                        td 
+                            a(href="/admin/movie/update/"+movie.id_tmdb) Modifier
+                        td 
+                            a(href="/admin/movie/"+movie.id_tmdb class="delete-movie") Supprimer
+    else 
+        p Aucun film enregistré. Pour en ajouter,  
+            a(href='/admin/movie/add') cliquez ici
+
+block javascript
+    script(src="/javascript/admin_movie.js")

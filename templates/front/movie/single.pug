@@ -1,0 +1,42 @@
+extends ../layout.pug
+block content
+    .grid#single-movie
+        section
+            hgroup
+                h2= movie.title
+                h3= movie.year
+            p= movie.synopsis
+            figure
+                img(src=movie.affiche alt='Architecture')
+                figcaption
+                    | Image from 
+                    a(href='https://www.themoviedb.org/') tmdb.com
+            h3 Nulla augue metus
+            p
+                | Pacilisis sed ante ut, posuere volutpat quam. Maecenas maximus blandit mi ac finibus. Proin quis lacinia tellus. Aliquam erat volutpat. Aliquam erat volutpat. Phasellus suscipit nisi augue, id accumsan tortor auctor ut. Duis odio arcu, egestas nec nulla vel, fermentum bibendum ex.
+            h3 Sed purus sapien, porta a cursus sed, maximus et metus.
+            p
+                | Phasellus molestie ante sed massa bibendum, eget tempus ex sollicitudin. Vestibulum libero nulla, porttitor nec faucibus et, scelerisque eget quam. Nullam finibus tempor dui, vel congue urna condimentum ac. Fusce ultricies mauris justo, nec vulputate mauris pulvinar eu. Sed tempus ligula lorem, at tincidunt risus mollis non. Quisque et turpis sit amet sapien gravida ullamcorper in eu velit. Curabitur luctus ornare finibus. Proin tempor nulla sagittis est fermentum dapibus. Vestibulum posuere mattis congue. Ut porttitor id sem euismod tristique. Quisque mi est, posuere nec lorem eu, vulputate vehicula diam. Nullam scelerisque, libero posuere efficitur bibendum, urna odio finibus lorem, sed volutpat dolor ligula in dolor. Suspendisse suscipit efficitur neque, ut porta tellus mollis vel. Nam consequat arcu ac tellus porta, nec egestas orci sodales.
+        aside
+            a(href='#' aria-label='Example' onclick='event.preventDefault()')
+                img(src='https://source.unsplash.com/T5nXYXCf50I/1500x750' alt='Architecture')
+            p
+                a(href='#' onclick='event.preventDefault()') Donec sit amet
+                br
+                small Class aptent taciti sociosqu ad litora torquent per conubia nostra
+            a(href='#' aria-label='Example' onclick='event.preventDefault()')
+                img(src='https://source.unsplash.com/tb4heMa-ZRo/1500x750' alt='Architecture')
+            p
+                a(href='#' onclick='event.preventDefault()') Suspendisse potenti
+                br
+                small Proin non condimentum tortor. Donec in feugiat sapien.
+            a(href='#' aria-label='Example' onclick='event.preventDefault()')
+                img(src='https://source.unsplash.com/Ru3Ap8TNcsk/1500x750' alt='Architecture')
+            p
+                a(href='#' onclick='event.preventDefault()') Nullam lobortis placerat aliquam
+                br
+                small
+                    | Maecenas vitae nibh blandit dolor commodo egestas vel eget neque. Praesent semper justo orci, vel imperdiet mi auctor in.
+
+block javascript
+    script(src="/javascript/home.js")

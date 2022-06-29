@@ -1,0 +1,20 @@
+extends ../layout.pug
+
+block content 
+    h1 Importer des films
+
+    article
+        header
+            h2 Instructions 
+            p    
+                | Le fichier envoyé doit être un fichier .txt contentant des titres de films uniquement, séparés par des sauts de ligne. 
+                br
+                | Le système sélectionne le premier film retourné par l'API intérogée. 
+        form(method='post' enctype='multipart/form-data' class="import-movie")
+            input(type='file' name='txt_file' placeholder='Fichier texte' aria-label='Fichier texte' required='')
+            label(for='verify')
+                input#terms(type='checkbox' role='switch' name='verify' required='')
+                |   Je certifie avoir controlé mon fichier avant envoi 
+            button(type='submit') Envoyer
+block javascript
+    script(src="/javascript/admin_import_movie.js")

@@ -1,0 +1,20 @@
+nav#admin__nav-sidebar
+    div
+        details(role='list' dir='rtl')
+            summary.contrast(aria-haspopup='listbox' role='link') Films
+            ul(role='listbox')
+                li
+                    a(href='/admin/movie') Tous les films
+                li
+                    a(href='/admin/movie/add/') Ajouter un film 
+                li
+                    a(href='/admin/movie/import/') Importer 
+        details(role='list' dir='rtl')
+            summary.contrast(aria-haspopup='listbox' role='link')  Utilisateurs
+            ul(role='listbox')
+                li
+                    a(href='/admin/movie') Tous les utilisateurs
+                li
+                    a(href='/admin/movie/add/') Ajouter utilisateur 
+    div 
+        a(href="/admin/disconnect" class="contrast") Déconnexion

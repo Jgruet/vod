@@ -1,0 +1,212 @@
+// Override default variables
+/* $primary-500: #009688;
+$primary-600: #00897b;
+$primary-700: #00796b;
+ */
+$primary-500: #942c25;
+$primary-600: #6e1a19;
+$primary-700: #521010;
+
+@import "../../node_modules/@picocss/pico/scss/pico.scss";
+$include-column-box-sizing: true;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins/lists";
+@import "../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../node_modules/bootstrap/scss/mixins/grid";
+@import "../../node_modules/bootstrap/scss/mixins/utilities";
+@import "../../node_modules/bootstrap/scss/vendor/rfs";
+@import "../../node_modules/bootstrap/scss/grid";
+
+#parentMoviesList {
+    position: relative;
+}
+#moviesList {
+    list-style: none;
+    background-color: white;
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    overflow: auto;
+    display: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+}
+#moviesList li {
+    padding: 5px;
+}
+
+.hero {
+    background-color: #394046;
+    background-image: url("/img/hero.png");
+    background-position: center;
+    background-size: cover;
+}
+header {
+    padding: 3rem 0;
+}
+#moviesList img {
+    width: 200px;
+}
+
+#movie-list img {
+    width: 100%;
+}
+
+#movie-list ul {
+    padding: 0;
+}
+
+#movie-list ul li {
+    display: inline;
+}
+
+#movie-list ul li:not(:last-child)::after {
+    content: ", ";
+}
+
+#movie-list article {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#movie-list article iframe {
+    position: absolute;
+    top: -50%;
+    right: 0;
+    transition: all 1s ease;
+}
+
+#movie-list article .info-movie {
+    padding: 1rem;
+    position: absolute;
+    bottom: -50%;
+    background: var(--card-sectionning-background-color);
+    transition: all 1s ease;
+    opacity: 0;
+    visibility: hidden;
+    height: 51%;
+}
+#movie-list article:hover .info-movie,
+#movie-list article:hover iframe {
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+#movie-list article:hover iframe {
+    top: 0;
+}
+
+/* Nav */
+summary[role="link"].contrast:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--contrast-hover);
+}
+
+/*Admin auth form */
+#admin-authentication_form {
+    padding: 0;
+}
+#admin-authentication_form div:nth-of-type(1) {
+    padding: 2rem;
+}
+#admin-authentication_form div:nth-of-type(2) {
+    background-color: #374956;
+    background-image: url("/img/bobine.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.alert-ko {
+    padding: 15px;
+    text-align: center;
+    background: $primary-600;
+}
+
+#admin__nav-header {
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background-color: var(--card-background-color);
+    box-shadow: var(--card-box-shadow);
+    padding: 0 15px;
+}
+#admin__nav-sidebar {
+    height: calc(100% - 80px);
+    top: 80px;
+    position: fixed;
+    flex-direction: column;
+    width: 200px;
+    background-color: var(--card-sectionning-background-color);
+    box-shadow: var(--card-box-shadow);
+}
+#admin__nav_sidebar details[role="list"] {
+    padding: var(--spacing) !important;
+    border-bottom: var(--border-width) solid !important;
+}
+#admin__nav-sidebar ul[role="listbox"] {
+    position: relative;
+    text-align: left;
+    max-width: 100%;
+    margin: 10px 0;
+    background: unset;
+    border: unset;
+    box-shadow: unset;
+}
+
+#admin__nav-sidebar summary {
+    justify-content: space-around;
+    margin-top: 15px;
+}
+#admin-content-wrapper {
+    padding-left: 200px;
+    /* padding-top: calc(var(--block-spacing-vertical) + 80px); */
+    padding-top: var(--block-spacing-vertical);
+}
+#admin-content {
+    margin: 2rem 4rem;
+}
+
+/* Main */
+@media (min-width: 992px) {
+    #single-movie.grid {
+        grid-column-gap: 3rem;
+        grid-template-columns: auto 25%;
+    }
+}
+
+#single-movie form.grid {
+    grid-row-gap: 0;
+}
+
+#single-movie aside img {
+    margin-bottom: 0.25rem;
+}
+
+#single-movie aside p {
+    margin-bottom: 3rem;
+    line-height: 1.25;
+}
+#see-more{
+    justify-content: center;
+    text-align: center;
+}
+
+.documentation h2, .documentation h3 {
+    margin:0;
+}
+.documentation ul li ul li{
+    list-style: circle;
+}

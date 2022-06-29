@@ -1,0 +1,55 @@
+extends ../layout.pug
+ 
+block content   
+    h1 Ajouter un film
+    if error
+        .alert.alert-danger(role="alert")  #{error}
+    article
+        form(method="post")
+            input(type="hidden" name="id_tmdb" id="id_tmdb" value=movie.id_tmdb)
+            .form-group
+                label(for="title") Titre
+                input.form-control.basicAutoComplete(type="text" id="title" name="title" autocomplete="off" value=movie.title placeholder="Titre du film")
+                div#parentMoviesList
+                    ul#moviesList
+            .form-group
+                label(for="affiche") Affiche
+                input.form-control(type="text" id="affiche" name="affiche" value=movie.affiche placeholder="Url de l'affiche")
+            .form-group
+                label(for="year") Année de production
+                input.form-control(type="number" id="year" name="year" min="1900" max=new Date().getFullYear()+1 value=movie.year placeholder="Année de production")
+            .form-group
+                label(for="genre") Genre
+                input.form-control(type="text" id="genre" name="genre" value=movie.genre placeholder="Genre (action, science-fiction, comédie, ...)")
+            .form-group
+                label(for="actors") Acteur(s)
+                input.form-control(type="text" id="actors" name="actors" value=movie.actors.join(', ') placeholder="Liste des acteurs")
+            .form-group
+                label(for="synopsis")
+                textarea.form-control(type="synopsis" id="synopsis" name="synopsis" placeholder="Synopsis") #{movie.synopsis}
+            .form-group
+                label(for="Bande annonce") Bande annonce
+                input.form-control(type="text" id="ba" name="ba" value=movie.ba placeholder="Lien youtube de la bande annonce")
+    
+            .form-group
+                if movie.id_tmdb
+                    button.btn.btn-primary(type="submit") Mettre à jour
+                else 
+                    button.btn.btn-primary(type="submit") Ajouter
+    
+        template#movieChoice
+            li
+                img(src="")
+                span.title
+ 
+ 
+block javascript
+    if !movie
+        script(src="/javascript/movie.js")
+    //-    
+        if movie.synopsis
+            script. 
+                document.getElementById('synopsis').textContent = "#{movie.synopsis}"
+    script 
+        | const apiUrl = "#{process.env.TMDB_API_URL}";
+        | const apiKey = "#{process.env.TMDB_API_KEY_V3}";

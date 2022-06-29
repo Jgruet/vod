@@ -1,0 +1,28 @@
+{
+  "name": "vod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browser-refresh server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@picocss/pico": "^1.5.2",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.1.3",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.3",
+    "fetch": "^1.1.0",
+    "mongoose": "^6.3.4",
+    "node-sass-middleware": "^1.0.1",
+    "pug": "^3.0.2"
+  }
+}

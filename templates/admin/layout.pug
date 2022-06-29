@@ -1,0 +1,32 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //link(rel='stylesheet', href='@picocss/pico')
+        link(rel='stylesheet', href='/css/main.css')
+        script(src=process.env.BROWSER_REFRESH_URL)
+        title Vàld - Administration
+    body
+        block nav_header 
+            include partials/nav_header.pug
+        block nav_sidebar 
+            include partials/nav_sidebar.pug
+
+        main(class="container-fluid")#admin-content-wrapper
+            #admin-content
+                block content
+        footer(class="container")
+            small Built with 
+                a(href="https://picocss.com") Pico 
+                span & 
+                a(href="https://nodejs.org/en/") NodeJS
+            block javascript
+            - var messages = getMessages()
+                    if messages.notify
+                        each msg in messages.notify
+                            .alert.alert-info= msg
+                    if messages.error
+                        each msg in messages.error
+                            .alert.alert-danger= msg
